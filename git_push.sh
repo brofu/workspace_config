@@ -8,5 +8,5 @@ spawn git push $des $local:$remote
 expect "Username"
 send "ispcfs@gmail.com\r"
 expect "Password"
-send "352213os839836\r"
+send "test\r"
 expect eof
