@@ -10,7 +10,7 @@ if [ $p_number = "1" ]
 then
 	datetime=`date`
 	echo "${datetime} shadowsocks quit with known reason, restart it" 
-	echo temp | sudo -S /home/changfu/changfu_config/start_after_boot.ssh >/dev/null
+	echo temp | sudo -S ./start_after_boot.sh >/dev/null
 fi
 }
 
