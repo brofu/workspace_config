@@ -5,6 +5,7 @@ CHANGFU_CONF=$CHANGFU_SHELL/myconf
 
 # alias for python with vitualenv
 alias vpython='source $HOME/workspace/vp/bin/activate && python'
+alias dpython='source $HOME/workspace/python_dev/bin/activate && python'
 
 # alias for git_push
 alias gitpush='$CHANGFU_SHELL/git_push.sh'

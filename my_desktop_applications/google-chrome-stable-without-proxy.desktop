@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=成都福哥的酷瑞姆
+Icon=google-chrome-stable.png
+Path=/home/changfu
+Exec=/opt/google/chrome/chrome"
+StartupNotify=false
+StartupWMClass=Google-chrome-stable
+OnlyShowIn=Unity;
+X-UnityGenerated=true
