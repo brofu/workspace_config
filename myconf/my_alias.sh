@@ -15,7 +15,7 @@ alias ssh142='$CHANGFU_SHELL/ssh_auto_login.sh maiziedu 192.168.1.142 1234 /var/
 alias ssh16='$CHANGFU_SHELL/ssh_auto_login.sh root 192.168.1.16 1234 /var/www/code.maiziedufps'
 
 # alias for google
-alias chrome='google-chrome-stable & 1>/dev/null 2>&1' 
+alias chrome='google-chrome & 1>/dev/null 2>&1' 
 
 # alias for subline text 3
 alias subl='subl & 1>/dev/null 2>&1'
