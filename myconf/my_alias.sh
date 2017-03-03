@@ -3,6 +3,12 @@
 CHANGFU_SHELL=$HOME/workspace/shell
 CHANGFU_CONF=$CHANGFU_SHELL/myconf
 
+# alias for reload .bashrc
+alias rl='. ~/.bashrc && echo reload success!'
+
+# alias for tmux
+alias tx='tmux'
+
 # alias for python with vitualenv
 alias vpython='source $HOME/workspace/vp/bin/activate && python'
 alias dpython='source $HOME/workspace/python_dev/bin/activate && python'
@@ -20,5 +26,44 @@ alias chrome='google-chrome & 1>/dev/null 2>&1'
 # alias for subline text 3
 alias subl='subl & 1>/dev/null 2>&1'
 
+# alias for mysql-workbench
+alias mysqlwb='mysql-workbench & 1>/dev/null 2>&1i'
+
+# alias for pycharm
+alias pycharm='/home/shaocf/tools/pycharm-community-2016.2.3/bin/pycharm.sh & 1>/dev/null 2>&1'
+
+# alias for python virtualenv
+alias vp='. $HOME/workspace/python_dev/bin/activate'
+
+# alias for django 1.6
+alias ven_16='. $HOME/workspace/venvs/django1.6/bin/activate'
+
+# alias for garena dev
+# alias for virtualenv of webclient dango 1.6
+
+alias ven_backend='. $HOME/workspace/webclient_python_dev/bin/activate'
+alias ven_payment='. $HOME/workspace/venvs/cyberpay_service_payment/bin/activate'
+alias ven_db='. $HOME/workspace/venvs/cyberpay_service_dbworker/bin/activate'
+alias ven_admin='. $HOME/workspace/venvs/vpay/bin/activate'
+alias ven_logging='. $HOME/workspace/venvs/cyberpay_service_logging/bin/activate'
+alias ven_integration='. $HOME/workspace/venvs/cyberpay_site_integration/bin/activate'
+
+
 # alias for test servers
-alias ssh_test_id='ssh ld-shaocf@'
+alias ssh_138='ssh ld-shaocf@43.252.185.138'
+alias ssh_132='ssh ld-shaocf@43.252.185.132'
+
+alias ssh_141='ssh ld-shaocf@43.252.185.141'
+alias ssh_6='ssh ld-shaocf@203.116.124.6'
+alias ssh_146='ssh ld-shaocf@43.252.185.146'
+
+alias ssh_172='ssh ld-shaocf@203.117.155.172'
+
+# alias for TH servers
+alias ssh_th_51='ssh ld-shaocf@112.121.158.51'
+alias ssh_th_17='ssh ld-shaocf@203.116.124.17'
+alias ssh_th_18='ssh ld-shaocf@203.116.124.18'
+alias ssh_th_38='ssh ld-shaocf@112.121.158.38'
+alias ssh_th_23='ssh ld-shaocf@203.116.124.23'
+alias ssh_th_61='ssh ld-shaocf@112.121.158.61'
+

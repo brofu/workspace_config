@@ -113,5 +113,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# system configuration
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
 # enable custom configuration
 . $HOME/workspace/shell/myconf/my_alias.sh
+
+# setup necesary custom configuration
+. $HOME/workspace/shell/myconf/setup_tools.sh
+
