@@ -1,0 +1,59 @@
+host id_live_146
+   HostName 43.252.185.146
+   User ld-shaocf
+
+host 43.252.185.141
+	HostName 192.168.14.30
+	User ld-shaocf
+
+host 43.252.185.138
+	HostName 192.168.14.3
+	User ld-shaocf
+
+host 43.252.185.132
+	HostName 192.168.14.2
+	User ld-shaocf
+
+host 43.252.185.146
+	HostName 192.168.14.31
+	User ld-shaocf
+
+
+# 43.252.185.146
+Host 192.168.14.31
+	StrictHostKeyChecking no
+ 	HostName %h
+	User ld-shaocf
+ 	IdentityFile ~/.ssh/id_rsa
+ 	ProxyCommand ssh bastion -W %h:%p
+
+
+# 43.252.185.132
+Host 192.168.14.2 
+	StrictHostKeyChecking no
+ 	HostName %h
+	User ld-shaocf
+ 	IdentityFile ~/.ssh/id_rsa
+ 	ProxyCommand ssh bastion -W %h:%p
+
+# 43.252.185.138
+Host 192.168.14.3 
+	StrictHostKeyChecking no
+ 	HostName %h
+	User ld-shaocf
+ 	IdentityFile ~/.ssh/id_rsa
+ 	ProxyCommand ssh bastion -W %h:%p
+
+# 43.252.185.141
+Host 192.168.14.30
+	StrictHostKeyChecking no
+ 	HostName %h
+	User ld-shaocf
+ 	IdentityFile ~/.ssh/id_rsa
+ 	ProxyCommand ssh bastion -W %h:%p
+
+Host bastion
+  	HostName 43.252.185.151 
+  	port 22
+  	User ld-shaocf
+  	IdentityFile ~/.ssh/id_rsa

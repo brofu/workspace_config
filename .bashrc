@@ -116,8 +116,11 @@ fi
 # system configuration
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
-# enable custom configuration
+# enable alias 
 . $HOME/workspace/shell/myconf/my_alias.sh
+
+# enable custom configuration
+. $HOME/workspace/shell/myconf/my_configs.sh
 
 # setup necesary custom configuration
 . $HOME/workspace/shell/myconf/setup_tools.sh

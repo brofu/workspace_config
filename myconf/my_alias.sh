@@ -9,6 +9,19 @@ alias rl='. ~/.bashrc && echo reload success!'
 # alias for tmux
 alias tx='tmux'
 
+# alias for git
+alias gs='git status'
+alias gb='git branch -vv'
+alias ga='git add'
+alias gc='git commit -m'
+alias gd='git diff'
+
+alias gck='git checkout'
+
+alias gpl='git pull'
+alias gph='git push'
+
+
 # alias for python with vitualenv
 alias vpython='source $HOME/workspace/vp/bin/activate && python'
 alias dpython='source $HOME/workspace/python_dev/bin/activate && python'
@@ -49,14 +62,15 @@ alias ven_logging='. $HOME/workspace/venvs/cyberpay_service_logging/bin/activate
 alias ven_integration='. $HOME/workspace/venvs/cyberpay_site_integration/bin/activate'
 
 
-# alias for test servers
 alias ssh_138='ssh ld-shaocf@43.252.185.138'
 alias ssh_132='ssh ld-shaocf@43.252.185.132'
+alias ssh_132_tun='ssh 192.168.14.2' 
 
 alias ssh_141='ssh ld-shaocf@43.252.185.141'
 alias ssh_6='ssh ld-shaocf@203.116.124.6'
 alias ssh_146='ssh ld-shaocf@43.252.185.146'
 
+# alias for test servers
 alias ssh_172='ssh ld-shaocf@203.117.155.172'
 
 # alias for TH servers
