@@ -15,6 +15,8 @@ alias gb='git branch -vv'
 alias ga='git add'
 alias gc='git commit -m'
 alias gd='git diff'
+alias gr='git remote -v'
+alias gl='git log'
 
 alias gck='git checkout'
 

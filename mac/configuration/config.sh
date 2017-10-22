@@ -46,3 +46,15 @@ if [ ! -f $VIMRC ]; then
 else
 	echo "$VIMRC already exists"
 fi
+
+
+### tmux config
+
+TMUX_CONIFG=$HOME/.tmux.conf
+
+if [ ! -f $TMUX_CONIFG ]; then
+	ln -s $COMMON_TOOLS/tmux/.tmux.conf $TMUX_CONIFG
+	check_critical_success $? "$TMUX_CONIFG created successfully" "$TMUX_CONIFG created created failed" 
+else
+	echo "$TMUX_CONIFG already exists"
+fi
