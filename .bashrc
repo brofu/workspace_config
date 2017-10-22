@@ -125,3 +125,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 # setup necesary custom configuration
 . $HOME/workspace/shell/myconf/setup_tools.sh
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+

@@ -7,7 +7,8 @@ CHANGFU_CONF=$CHANGFU_SHELL/myconf
 alias rl='. ~/.bashrc && echo reload success!'
 
 # alias for tmux
-alias tx='tmux'
+alias tx='tmux -2'
+alias tx_load='bash $HOME/workspace/tools/tmux/.auto_load'
 
 # alias for git
 alias gs='git status'
@@ -15,6 +16,8 @@ alias gb='git branch -vv'
 alias ga='git add'
 alias gc='git commit -m'
 alias gd='git diff'
+alias gr='git remote -v'
+alias gl='git log'
 
 alias gck='git checkout'
 
@@ -65,19 +68,24 @@ alias ven_integration='. $HOME/workspace/venvs/cyberpay_site_integration/bin/act
 alias ssh_138='ssh ld-shaocf@43.252.185.138'
 alias ssh_132='ssh ld-shaocf@43.252.185.132'
 alias ssh_132_tun='ssh 192.168.14.2' 
-
+alias ssh_139='ssh ld-shaocf@43.252.185.139'
 alias ssh_141='ssh ld-shaocf@43.252.185.141'
 alias ssh_6='ssh ld-shaocf@203.116.124.6'
 alias ssh_146='ssh ld-shaocf@43.252.185.146'
 
 # alias for test servers
 alias ssh_172='ssh ld-shaocf@203.117.155.172'
+alias sftp_172='sftp ld-shaocf@203.117.155.172'
 
 # alias for TH servers
 alias ssh_th_51='ssh ld-shaocf@112.121.158.51'
+alias ssh_th_52='ssh ld-shaocf@112.121.158.52'
 alias ssh_th_17='ssh ld-shaocf@203.116.124.17'
 alias ssh_th_18='ssh ld-shaocf@203.116.124.18'
 alias ssh_th_38='ssh ld-shaocf@112.121.158.38'
 alias ssh_th_23='ssh ld-shaocf@203.116.124.23'
 alias ssh_th_61='ssh ld-shaocf@112.121.158.61'
+alias ssh_th_138='ssh ld-shaocf@112.121.158.138'
 
+# alias for PH server
+alias ssh_ph_221='ssh 125.5.3.221'
