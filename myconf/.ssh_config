@@ -1,3 +1,66 @@
+Host github.com
+    HostName github.com
+    User brofu
+    IdentityFile ~/.ssh/keys/id_rsa_changfu
+
+User ld-shaocf
+IdentityFile ~/.ssh/id_rsa_v2
+StrictHostKeyChecking no
+
+Host git.garena.com
+    Port 2222
+    HostName git.garena.com
+    IdentityFile ~/.ssh/id_rsa
+
+# TW
+Host 10.59.28.* 10.59.45.*
+    ProxyCommand ssh bastion_tw -W %h:%p
+Host 10.59.*
+    ProxyCommand ssh bastion_tw1 -W %h:%p
+
+Host bastion_tw
+    HostName 124.108.151.98
+Host bastion_tw1
+    HostName 103.117.5.51
+
+# SG NC
+ Host 10.10.50.* 10.10.48.* 10.65.16.* 10.10.20.* 10.10.24.*
+     ProxyCommand ssh bastion_nc -W %h:%p
+
+Host bastion_nc
+    HostName 122.11.129.168
+
+# SG MH live
+ Host 10.65.* 10.70.* 10.131.* 10.130.*
+     ProxyCommand ssh bastion_mh_live -W %h:%p
+     
+Host bastion_mh_live
+    #HostName 203.116.243.3
+    #HostName 103.115.78.184
+    HostName 103.115.78.143
+ 	IdentityFile ~/.ssh/id_rsa_v2
+
+Host toc.shopee.io sg.ssh.toc.shopee.io
+    HostName 103.115.78.70
+ 	IdentityFile ~/.ssh/id_rsa_v2
+
+# SG DC-West live
+Host 10.129.8.* 10.129.9.* 10.129.10.* 10.129.11.* 10.129.15.* 10.129.2*.* 10.129.3* 10.129.4* 10.129.5*
+    ProxyCommand ssh bastion_sg2_live -W %h:%p
+     
+Host bastion_sg2_live
+    HostName 103.115.77.65
+
+# SG DC-West test
+Host 10.129.104.* 10.129.97.* 10.129.98.* 10.129.99.* 10.129.100.* 10.129.101.* 10.129.103.* 10.129.152.* 10.129.153.* 10.129.154.* 10.129.155.* 10.129.132.* 10.129.14*
+     ProxyCommand ssh bastion_sg2_test -W %h:%p
+
+Host bastion_sg2_test
+    HostName 143.92.64.45
+
+Host *
+    UseKeychain yes
+
 host id_live_146
    HostName 43.252.185.146
    User ld-shaocf
@@ -6,13 +69,13 @@ host 43.252.185.141
 	HostName 192.168.14.30
 	User ld-shaocf
 
-host 43.252.185.138
-	HostName 192.168.14.3
-	User ld-shaocf
+#host 43.252.185.138
+#	HostName 192.168.14.3
+#	User ld-shaocf
 
-host 43.252.185.132
-	HostName 192.168.14.2
-	User ld-shaocf
+#host 43.252.185.132
+#	HostName 192.168.14.2
+#	User ld-shaocf
 
 host 43.252.185.146
 	HostName 192.168.14.31
@@ -56,6 +119,15 @@ Host 192.168.14.30
  	IdentityFile ~/.ssh/id_rsa
  	ProxyCommand ssh bastion -W %h:%p
 
+# 43.252.185.147
+Host 192.168.14.9 
+	StrictHostKeyChecking no
+ 	HostName %h
+	User ld-shaocf
+ 	IdentityFile ~/.ssh/id_rsa
+ 	ProxyCommand ssh bastion -W %h:%p
+
+
 # 43.252.185.139
 Host 192.168.14.28
 	StrictHostKeyChecking no
@@ -91,4 +163,25 @@ Host ph_bastion
   	port 22
   	User ld-shaocf
   	IdentityFile ~/.ssh/id_rsa
+
+
+############# TH
+Host apc_bastion_th_4th 
+    HostName 112.121.158.191
+  	port 22
+  	User ld-shaocf
+  	IdentityFile ~/.ssh/id_rsa
+
+
+Host 10.66.158.238 10.66.158.62 10.66.158.51
+	StrictHostKeyChecking no
+
+    ProxyCommand ssh apc_bastion_th_4th -W %h:%p
+
+
+
+### ClickHouse Jump Machine
+Host CK
+    HostName     103.115.76.108
+    User         shaocf
 

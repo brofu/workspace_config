@@ -12,18 +12,19 @@ alias tx_load='bash $HOME/workspace/tools/tmux/.auto_load'
 
 # alias for git
 alias gs='git status'
-alias gb='git branch -vv'
+alias gb='git branch'
 alias ga='git add'
 alias gc='git commit -m'
 alias gd='git diff'
 alias gr='git remote -v'
 alias gl='git log'
 
-alias gck='git checkout'
+alias gco='git checkout'
 
 alias gpl='git pull'
 alias gph='git push'
 
+alias gcf='git config'
 
 # alias for python with vitualenv
 alias vpython='source $HOME/workspace/vp/bin/activate && python'
@@ -64,28 +65,46 @@ alias ven_admin='. $HOME/workspace/venvs/vpay/bin/activate'
 alias ven_logging='. $HOME/workspace/venvs/cyberpay_service_logging/bin/activate'
 alias ven_integration='. $HOME/workspace/venvs/cyberpay_site_integration/bin/activate'
 
+# CS servers
+alias cs_test='ssh ld-shaocf@10.129.97.78'
+alias cs_uat='ssh ld-shaocf@10.129.97.142'
+alias cs_stage='ssh ld-shaocf@10.129.97.207'
+alias cs_can='ssh ld-shaocf@10.70.8.165'
+alias cs_live_tool_147='ssh ld-shaocf@10.70.15.147'
+alias cs_live_153='ssh ld-shaocf@10.65.236.153'
+alias cs_log='ssh ld-shaocf@log-collect.shopeemobile.com'
 
-alias ssh_138='ssh ld-shaocf@43.252.185.138'
-alias ssh_132='ssh ld-shaocf@43.252.185.132'
-alias ssh_132_tun='ssh 192.168.14.2' 
-alias ssh_139='ssh ld-shaocf@43.252.185.139'
-alias ssh_141='ssh ld-shaocf@43.252.185.141'
-alias ssh_6='ssh ld-shaocf@203.116.124.6'
-alias ssh_146='ssh ld-shaocf@43.252.185.146'
+# Account servers
+alias ac_live_67='ssh ld-shaocf@10.70.17.67'
+alias ac_can='ssh ld-shaocf@10.70.9.240'
+alias con_spex='ssh -vvvCNL /run/spex/spex.sock:/run/spex/spex.sock -o StreamLocalBindUnlink=yes 10.129.97.78 &'
+#alias kill_spex="kill -9 `ps aux | grep ssh | grep spex | awk '{print $2}'`"
 
-# alias for test servers
-alias ssh_172='ssh ld-shaocf@203.117.155.172'
-alias sftp_172='sftp ld-shaocf@203.117.155.172'
+# common servers
+alias com_144='ssh ld-shaocf@10.70.47.144'
+alias com_145='ssh ld-shaocf@10.70.47.145'
+alias com_146='ssh ld-shaocf@10.70.47.146'
+alias kfk_145='ssh ld-shaocf@10.70.40.145'
 
-# alias for TH servers
-alias ssh_th_51='ssh ld-shaocf@112.121.158.51'
-alias ssh_th_52='ssh ld-shaocf@112.121.158.52'
-alias ssh_th_17='ssh ld-shaocf@203.116.124.17'
-alias ssh_th_18='ssh ld-shaocf@203.116.124.18'
-alias ssh_th_38='ssh ld-shaocf@112.121.158.38'
-alias ssh_th_23='ssh ld-shaocf@203.116.124.23'
-alias ssh_th_61='ssh ld-shaocf@112.121.158.61'
-alias ssh_th_138='ssh ld-shaocf@112.121.158.138'
+alias wcs='cd $GOPATH/src/git.garena.com/shopee-server/coreserver'
+alias wss='cd $GOPATH/src/git.garena.com/shopee/core-server'
 
-# alias for PH server
-alias ssh_ph_221='ssh 125.5.3.221'
+alias smct='smc -e test services' 
+alias smcu='smc -e uat services' 
+alias smcs='smc -e staging services' 
+alias smcl='smc -e live services' 
+
+#alias vim='vim -u ~/.go_vimrc'
+alias vg='ln -sf ~/workspace/config/mac/vim/.vimrc ~/.vimrc; vim'
+alias vjs='ln -sf ~/workspace/config/mac/vim/.js_vimrc ~/.vimrc; vim'
+alias vja='ln -sf ~/workspace/config/mac/vim/.ja_vimrc ~/.vimrc; vim'
+alias vp='ln -sf ~/workspace/config/mac/vim/.py_vimrc ~/.vimrc; vim'
+alias vl='ln -sf ~/workspace/config/mac/vim/.lua_vimrc ~/.vimrc; vim'
+
+#alias for gitbook
+alias gbookb='gitbook build . built/_book'
+alias gbooks='gitbook serve'
+
+
+#seller-gateway code
+alias sgw='cd /Users/shaocf/workspace/go/src/git.garena.com/shopee/seller-server/gateway/seller_gateway'
