@@ -122,9 +122,11 @@ config_path="$HOME/workspace/wpconfig"
 # common alias 
 . $config_path/bash/my_alias.sh
 
+# golang configs
+. $config_path/golang/config.sh
+
 # enable custom configuration
 #. $config_path/python_configs.sh
-#. $config_path/go_configs.sh
 
 # setup necesary custom configuration
 #. $config_path/setup_tools.sh
