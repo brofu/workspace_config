@@ -1,0 +1,10 @@
+{
+  "languageserver": {
+    "lua": {
+      "command": "/usr/local/bin/lua-language-server",
+      "args": ["-E", "/usr/local/Cellar/lua-language-server/3.7.0/libexec/main.lua"],
+      "filetypes": ["lua"]
+    }
+  }
+}
+

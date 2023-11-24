@@ -1,0 +1,149 @@
+"""""""""""""""""
+"""global configs
+
+set t_Co=256
+set encoding=utf-8
+
+" set tab spaces
+set tabstop=4
+let mapleader=";"
+
+" set maxmempattern
+set mmp=100000
+" take effect at once after config updated
+" both of the following will work
+"autocmd BufWritePost .vimrc source %
+"autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+" disable belling
+set belloff=all
+
+""""""""""""""""""""""""
+""" configuration of vim 
+
+" detect file type
+filetype on
+" load plugins with corresponding file type
+filetype plugin on
+
+" keys for switching splitted window
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+""" Plugins
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" buffer manage
+Plugin 'fholgado/minibufexpl.vim'
+" project files management
+Plugin 'scrooloose/nerdtree'
+
+" theme
+Plugin 'morhetz/gruvbox'
+"Plugin 'altercation/vim-colors-solarized'
+
+" TypeScript Syntax
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'leafgarland/typescript-vim'
+
+Plugin 'neoclide/coc.nvim'
+" project files management with git
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" git gutter
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" 
+Plugin 'tpope/vim-fugitive'
+call vundle#end()
+
+
+""""""  Config for plugins
+
+""" color theme
+colorscheme gruvbox
+"colorscheme solarized 
+
+""" yats
+let g:yats_host_keyword = 1
+
+""" coc
+let g:coc_disable_startup_warning = 1
+
+""" config for nerdtree-git-plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+"
+""" config for Git Gutter
+set signcolumn=yes
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
+
+
+""" vim airline
+let g:airline_powerline_fonts = 1
+
+""" Nerdtree
+" start with vim
+"autocmd vimenter * NERDTree
+" 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+nmap <Leader>fl :NERDTreeToggle<CR>
+" 设置NERDTree子窗口宽度
+let NERDTreeWinSize=32
+" 设置NERDTree子窗口位置
+let NERDTreeWinPos="left"
+" 显示隐藏文件
+let NERDTreeShowHidden=1
+" NERDTree 子窗口中不显示冗余帮助信息
+let NERDTreeMinimalUI=1
+" 删除文件时自动删除文件对应 buffer
+let NERDTreeAutoDeleteBuffer=1
+
+""" MiniBufExplorer
+" 显示/隐藏 MiniBufExplorer 窗口
+map <Leader>bl :MBEToggle<cr>
+" buffer 切换快捷键
+map <C-Tab> :MBEbn<cr>
+map <C-S-Tab> :MBEbp<cr>
+
+
+""" vim-ftgitive
+"git status
+nnoremap <Leader>gs :Gstatus<CR>
+"git blame
+nnoremap <Leader>gbl :Gblame<CR> 
+
+
+"""""" Config for plugins END 
+
+""""""""""""""""""""""""""""""""""""
+" set paste and nopaste automatically with tmux
+
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction

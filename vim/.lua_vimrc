@@ -1,0 +1,205 @@
+"""""""""""""""""
+"""global configs
+
+set t_Co=256
+set encoding=utf-8
+
+" set tab spaces
+set tabstop=4
+let mapleader=";"
+
+" set maxmempattern
+set mmp=100000
+" take effect at once after config updated
+" both of the following will work
+"autocmd BufWritePost .vimrc source %
+"autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+" disable belling
+set belloff=all
+
+
+""""""""""""""""""""""""
+""" configuration of vim 
+
+" show line number
+set nu
+
+" highlight current line and column 
+set cursorline
+set cursorcolumn
+
+" highlight search result 
+set hlsearch
+
+" syntax on
+syntax on
+
+" detect file type
+filetype on
+" load plugins with corresponding file type
+filetype plugin on
+
+" keys for switching splitted window
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+""" Plugins
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" 
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-lua-ftplugin'
+
+" AutoComplet
+"Plugin 'Valloric/YouCompleteMe'
+
+" powerline
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" buffer manage
+Plugin 'fholgado/minibufexpl.vim'
+
+" project files management
+Plugin 'scrooloose/nerdtree'
+
+" tags of code
+Plugin 'majutsushi/tagbar'
+
+" git related
+Plugin 'tpope/vim-fugitive'
+
+" theme
+Plugin 'morhetz/gruvbox'
+"Plugin 'altercation/vim-colors-solarized'
+
+" ctrlp
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Java-completion
+" Plugin 'artur-shaik/vim-javacomplete2'
+
+" LSP
+Plugin 'neoclide/coc.nvim'
+
+" DAP
+Plugin 'puremourning/vimspector'
+ 
+" Asynchronous Linting Engine
+Plugin 'dense-analysis/ale'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+call vundle#end()
+
+
+"""""  Config for plugins
+
+" Config YCM
+"let g:ycm_autoclose_preview_window_after_completion=1
+"nmap <silent>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+set notagbsearch
+
+""" MiniBufExplorer
+" 显示/隐藏 MiniBufExplorer 窗口
+map <Leader>bl :MBEToggle<cr>
+" buffer 切换快捷键
+map <C-Tab> :MBEbn<cr>
+map <C-S-Tab> :MBEbp<cr>
+
+
+
+""" color theme
+colorscheme gruvbox
+"colorscheme solarized 
+
+""" config of tagbar 
+
+" 设置 tagbar 子窗口的位置出现在主编辑区的左边 
+let tagbar_right=1 
+" 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
+nnoremap <Leader>tb :TagbarToggle<CR> 
+" 设置标签子窗口的宽度 
+let tagbar_width=32 
+" tagbar 子窗口中不显示冗余帮助信息 
+let g:tagbar_compact=0
+
+""" config of ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" use current git repo/file director with ctrl p
+let g:ctrlp_working_path_mode = 'ra'
+
+""" config of Nerdtree
+" start with vim
+"autocmd vimenter * NERDTree
+" 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+nmap <Leader>fl :NERDTreeToggle<CR>
+" 设置NERDTree子窗口宽度
+let NERDTreeWinSize=32
+" 设置NERDTree子窗口位置
+let NERDTreeWinPos="left"
+" 显示隐藏文件
+let NERDTreeShowHidden=1
+" NERDTree 子窗口中不显示冗余帮助信息
+let NERDTreeMinimalUI=1
+" 删除文件时自动删除文件对应 buffer
+let NERDTreeAutoDeleteBuffer=1
+
+""" config vim-fugitive
+"git status
+nnoremap <Leader>gs :Gstatus<CR>
+"git blame
+nnoremap <Leader>gbl :Gblame<CR> 
+
+
+
+""" Java completion
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"autocmd FileType java JCEnable
+
+
+""" ALE
+
+" Shorten error/warning flags
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+" I have some custom icons for errors and warnings but feel free to change them.
+let g:ale_sign_error = '✘✘'
+let g:ale_sign_warning = '⚠⚠'
+
+" Disable or enable loclist at the bottom of vim 
+" Comes down to personal preferance.
+" let g:ale_open_list = 0
+" let g:ale_loclist = 0
+
+" Setup compilers for languages
+let g:ale_linters = {
+      \  'cs':['syntax', 'semantic', 'issues'],
+      \  'python': ['pylint'],
+      \  'java': ['javac']
+      \ }
+
+""" coc
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+let g:coc_disable_startup_warning = 1
+
+""" airline
+" status row
+"set laststatus=2
+"let g:airline_powerline_fonts = 1
+"let g:Powerline_symbols='fancy'
+"let g:airline_extensions = []
+"""""" Config for plugins END 
+

@@ -117,14 +117,14 @@ fi
 # system configuration
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
-config_path=$CONFIGROOT_CONFIGS/bash 
+config_path="$HOME/workspace/wpconfig" 
 
-# enable alias 
-. $config_path/my_alias.sh
+# common alias 
+. $config_path/bash/my_alias.sh
 
 # enable custom configuration
-. $config_path/python_configs.sh
-. $config_path/go_configs.sh
+#. $config_path/python_configs.sh
+#. $config_path/go_configs.sh
 
 # setup necesary custom configuration
 #. $config_path/setup_tools.sh
