@@ -134,3 +134,4 @@ config_path=$CONFIGROOT_CONFIGS/bash
 export PATH="$PATH:$HOME/.rvm/bin"
 
 
+. "$HOME/.cargo/env"
