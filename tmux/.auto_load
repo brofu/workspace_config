@@ -3,10 +3,7 @@
 # load dev session
 DEV_SESSION="dev"
 DEV_WINDOW="dev"
-LOG_WINDOW="log"
-
 DEV_HOME=$HOME/workspace
-LOG_HOME=/var/log
 
 tmux has-session -t $DEV_SESSION &> /dev/null
 
@@ -17,77 +14,35 @@ if [ $? != 0 ]
 
 	# create windows
 	tmux new-window -n $DEV_WINDOW -c $DEV_HOME
-	tmux new-window -t $DEV_SESSION:$DEV_WINDOW -n $LOG_WINDOW -c $LOG_HOME -a
 
 	# delete original window
 	tmux kill-window -t $DEV_SESSION:0
 	
 	tmux split-window -c $DEV_HOME -t $DEV_SESSION:$DEV_WINDOW.1 -v -d
-	tmux split-window -c $DEV_HOME -t $DEV_SESSION:$DEV_WINDOW.2 -h -d
-	tmux split-window -c $DEV_HOME -t $DEV_SESSION:$DEV_WINDOW.1 -h -d
-
-#	tmux split-window -c $LOG_HOME -t $DEV_SESSION:$LOG_WINDOW.1 -v -d
-#	tmux split-window -c $LOG_HOME -t $DEV_SESSION:$LOG_WINDOW.2 -h -d
-#	tmux split-window -c $LOG_HOME -t $DEV_SESSION:$LOG_WINDOW.1 -h -d
+	#tmux split-window -c $DEV_HOME -t $DEV_SESSION:$DEV_WINDOW.2 -h -d
+	#tmux split-window -c $DEV_HOME -t $DEV_SESSION:$DEV_WINDOW.1 -h -d
 
 fi
 
+# load local debug
+LOCAL_HOME="$HOME/workspace"
+LOCAL_SESSION="tech"
+LOCAL_WINDOW="tech"
 
-# load remote ssh server
-REMOTE_SESSION="remote"
 
-tmux has-session -t $REMOTE_SESSION &> /dev/null
+tmux has-session -t $LOCAL_SESSION&> /dev/null
 
 if [ $? != 0 ] 
  then
-	# create session
-    #tmux new-session -s $REMOTE_SESSION -d
-
-	# create windows 
-	#tmux new-window -n $ID_172 -c $DEV_HOME
-	#tmux new-window -t $REMOTE_SESSION:$ID_172 -n $ID_138 -c $DEV_HOME -a
-	#tmux new-window -t $REMOTE_SESSION:$ID_138 -n $ID_132 -c $DEV_HOME -a
-#
-#	# delete original window
-#	tmux kill-window -t $REMOTE_SESSION:0
-#
-#	# create panes for id_172
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_172.1 -v -d
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_172.2 -h -d
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_172.1 -h -d
-#
-#	# create panes for id_138
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_138.1 -v -d
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_138.2 -h -d
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_138.1 -h -d
-#
-#	# create panes for id_132
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_132.1 -v -d
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_132.2 -h -d
-#	tmux split-window -c $DEV_HOME -t $REMOTE_SESSION:$ID_132.1 -h -d
-#
-fi
-
-
-# load local debug
-#LOCAL_HOME=$HOME/workspace/python_study
-#LOCAL_SESSION="local"
-#LOCAL_WINDOW="python_study"
-#
-#
-#tmux has-session -t $LOCAL_SESSION&> /dev/null
-#
-#if [ $? != 0 ] 
-# then
     #tmux new-session -s $LOCAL_SESSION -n $LOCAL_WINDOW -d -c $LOCAL_HOME # strange here,first set a new window, and then close the window 0
-	#tmux new-session -s $LOCAL_SESSION -d
-#	tmux new-window -n $LOCAL_WINDOW -c $LOCAL_HOME
-#	tmux kill-window -t $LOCAL_SESSION:0
-#
-#	tmux split-window -c $LOCAL_HOME -t $LOCAL_SESSION:$LOCAL_WINDOW.1 -v -d
-#	tmux split-window -c $LOCAL_HOME  -t $LOCAL_SESSIO:$LOCAL_WINDOW.2 -h -d
-	#tmux split-window -c $LOCAL_HOME -t $LOCAL_SESSIO:$LOCAL_WINDOW.1 -h -d
-#fi
+	tmux new-session -s $LOCAL_SESSION -d
+	tmux new-window -n $LOCAL_WINDOW -c $LOCAL_HOME
+	tmux kill-window -t $LOCAL_SESSION:0
+
+	tmux split-window -c $LOCAL_HOME -t $LOCAL_SESSION:$LOCAL_WINDOW.1 -v -d
+	tmux split-window -c $LOCAL_HOME  -t $LOCAL_SESSION:$LOCAL_WINDOW.2 -h -d
+	#tmux split-window -c $LOCAL_HOME -t $LOCAL_SESSION:$LOCAL_WINDOW.1 -h -d
+fi
 
 
 # attach dev session with dev window

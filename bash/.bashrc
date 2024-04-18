@@ -117,22 +117,28 @@ fi
 # system configuration
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
-config_path="$HOME/workspace/wpconfig" 
 
-# common alias 
-. $config_path/bash/my_alias.sh
 
-# golang configs
-. $config_path/golang/config.sh
+### application configurations
+
+export WORKSPACE_PATH="$HOME/workspace"
+export WORKSPACE_CONFIG_PATH="$WORKSPACE_PATH/wpconfig"
+
+# tmux
+
+# golang 
+. $WORKSPACE_CONFIG_PATH/go/config.sh
 
 # enable custom configuration
-#. $config_path/python_configs.sh
+#. $WORKSPACE_CONFIG_PATH/python_configs.sh
 
 # setup necesary custom configuration
-#. $config_path/setup_tools.sh
+#. $WORKSPACE_CONFIG_PATH/setup_tools.sh
 
+# alias 
+. $WORKSPACE_CONFIG_PATH/bash/my_alias.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="$PATH:$HOME/.rvm/bin"
 
 
