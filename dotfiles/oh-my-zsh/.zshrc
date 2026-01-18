@@ -102,3 +102,11 @@ source $ZSH/oh-my-zsh.sh
 
 # invovle bash
 source ~/.bash_profile
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[[ -s "/Users/jeff_shao/.gvm/scripts/gvm" ]] && source "/Users/jeff_shao/.gvm/scripts/gvm"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"

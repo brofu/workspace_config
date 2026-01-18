@@ -113,7 +113,9 @@ map <C-S-Tab> :MBEbp<cr>
 
 
 """ color theme
-colorscheme gruvbox
+
+colorscheme desert
+"colorscheme gruvbox
 "colorscheme solarized 
 
 """ config of tagbar 

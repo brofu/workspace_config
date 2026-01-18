@@ -58,6 +58,8 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 """""""""""""""""""
 """ plugins loading
+""" start
+"""""""""""""""""""
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -84,7 +86,7 @@ Plugin 'derekwyatt/vim-fswitch'
 " bookmarks of code
 Plugin 'kshenoy/vim-signature'
 " tags of code
-Plugin 'majutsushi/tagbar'
+Plugin 'preservim/tagbar'
 
 " 智能补全
 Plugin 'ycm-core/YouCompleteMe', {'pinned': 1}
@@ -104,13 +106,42 @@ Plugin 'gabrielelana/vim-markdown'
 " Preview
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
-Plugin 'junegunn/fzf', {'do': { -> fzf#install()}} 
+" fzf
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " update the Rg function to support flexible search
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always " . <q-args>, fzf#vim#with_preview(), <bang>0)
+"command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always " . <q-args>, fzf#vim#with_preview(), <bang>0)
 
 call vundle#end()
+
+"""""""""""""""""""
+""" plugins loading
+""" end
+"""""""""""""""""""
+
+""""""""
+""" fzf
+
+" Search files in the current directory
+nnoremap <leader>f :Files<CR>
+
+" Search text in the project (requires ripgrep)
+nnoremap <leader>g :Rg<CR>
+
+" Search and switch between buffers
+nnoremap <leader>b :Buffers<CR>
+
+" Set fzf layout to open at the bottom with 40% height
+let g:fzf_layout = { 'down': '~40%' }
+
+" Enable preview window (optional)
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+"""""""""""""""""""
+""" plugins config
+""" end
+"""""""""""""""""""
 
 " markdown preview
 let vim_markdown_preview_toggle=1
@@ -119,6 +150,29 @@ let vim_markdown_preview_toggle=1
 
 
 " vim-go config
+
+" debug log of gopls
+" let g:go_debug=['lsp']
+
+" record shell commands and logs by vim-go. Really useful
+" let g:go_debug = ['shell-commands']
+
+" run check when saving a go file
+let g:go_metalinter_autosave = 1
+"let g:go_metalinter_command = 'golangci-lint run --show-stats=false --default=none --output.text.print-issued-lines=false --path-mode=abs --enable=govet --enable=errcheck'
+let g:go_metalinter_command = "golangci-lint"
+let g:go_metalinter_autosave_enabled = ['govet', 'errcheck']
+let g:go_list_type = ""
+"let g:go_list_type_commands = {'GoMetaLinter': 'quickfix'}
+
+" run :GoMetaLinter manually
+"let g:go_metalinter_enabled = ['govet', 'errcheck']
+"let g:go_metalinter_enabled = ['govet', 'revive', 'errcheck']
+"let g:go_metalinter_command = 'golangci-lint run --no-config'
+"let g:go_metalinter_command = 'golangci-lint run --no-config --default=none --enable=govet --enable=revive --enable=errcheck'
+
+" cmds constructed by vim-go 
+" vim-go: job command: ['/Users/jeff_shao/.gvm/pkgsets/go1.23/global/bin/golangci-lint', 'run', '--show-stats=false', '--output.text.print-issued-lines=false', '--build-tags', '', '--path-mode', 'abs', '--default=none', '--enable=govet', '--enable=errcheck', '/Users/jeff_shao/workspace/go/src/git.17zjh.com/wepie-ee/general/account-system-v2/app/server/route']
 
 " gotests config
 "let g:gotests_template_dir = '/home/user/templates/'
@@ -205,6 +259,9 @@ nmap <silent> <Leader>sw :FSHere<cr>
 
 """ config of tagbar 
 
+" set up the ctags location"
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+
 " 设置 tagbar 子窗口的位置出现在主编辑区的左边 
 let tagbar_right=1 
 " 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
@@ -243,7 +300,7 @@ let NERDTreeAutoDeleteBuffer=1
 "git status
 nnoremap <Leader>gs :Gstatus<CR>
 "git blame
-nnoremap <Leader>gbl :Gblame<CR> 
+nnoremap <Leader>gbl :Git blame<CR> 
 
 
 """vimgo
@@ -259,6 +316,8 @@ nnoremap <Leader>gr :GoReferrers<CR>
 nnoremap <Leader>gs :GoSameIds<CR>
 "go spell check
 let g:go_highlight_string_spellcheck=1
+"gopls
+let g:go_gopls_options = ['-remote=auto']
 
 
 """""""""""""""""""

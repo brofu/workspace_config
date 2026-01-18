@@ -141,4 +141,5 @@ export WORKSPACE_CONFIG_PATH="$WORKSPACE_PATH/wpconfig"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
 
-
+#export GEMINI_API_KEY="AIzaSyD1AWGb_swI-up6hoRIY6Ara-uJzP2WoyM"
+export GEMINI_API_KEY="AIzaSyBdC48xbMWMIYH4ZSRVtC1KtK9-NmE9gMI"

@@ -24,11 +24,11 @@ alias gph='git push'
 alias gcf='git config'
 
 #alias vim='vim -u ~/.go_vimrc'
-alias vg='ln -sf $CONFIG_ROOT/vim/.vimrc ~/.vimrc; nvim'
-alias vjs='ln -sf $CONFIG_ROOT/vim/.js_vimrc ~/.vimrc; nvim'
-alias vja='ln -sf $CONFIG_ROOT/vim/.ja_vimrc ~/.vimrc; nvim'
-alias vp='ln -sf $CONFIG_ROOT/vim/.py_vimrc ~/.vimrc; nvim'
-alias vl='ln -sf $CONFIG_ROOT/vim/.lua_vimrc ~/.vimrc; nvim'
+alias vg='ln -sf $CONFIG_ROOT/vim/.vimrc ~/.vimrc; vim'
+alias vjs='ln -sf $CONFIG_ROOT/vim/.js_vimrc ~/.vimrc; vim'
+alias vja='ln -sf $CONFIG_ROOT/vim/.ja_vimrc ~/.vimrc; vim'
+alias vp='ln -sf $CONFIG_ROOT/vim/.py_vimrc ~/.vimrc; vim'
+alias vl='ln -sf $CONFIG_ROOT/vim/.lua_vimrc ~/.vimrc; vim'
 
 #alias for gitbook
 alias gbookb='gitbook build . built/_book'
